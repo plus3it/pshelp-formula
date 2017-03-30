@@ -1,16 +1,10 @@
 ﻿{%- from "pshelp/map.jinja" import pshelp with context %}
 
-Create pshelp cache directory:
-  file.directory:
-    - name: '{{ pshelp.cachedir }}'
-    - makedirs: True
-
 Copy pshelp files:
   file.recurse:
     - name: '{{ pshelp.cachedir }}'
-    - source: salt://{{ tpldir }}/files/pshelp-content
-    - require:
-        - file: Create pshelp cache directory
+    - source: salt://{{ tpldir }}/content
+    - makedirs: True
 
 UpdatePSHelp:
   cmd.run:
