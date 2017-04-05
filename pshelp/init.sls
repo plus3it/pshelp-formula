@@ -8,7 +8,15 @@ Copy pshelp files:
 
 UpdatePSHelp:
   cmd.run:
-    - name: 'Update-Help -SourcePath {{ pshelp.cachedir }} -Module (Get-Module -ListAvailable | Where HelpInfoUri) -Force'
+    - name: 'try
+        {
+          Update-Help -SourcePath {{ pshelp.cachedir }} -Module (Get-Module -ListAvailable | Where HelpInfoUri) -Force -ErrorAction Stop
+        }
+        catch
+        {
+          Echo $_.Exception | Format-List -Force;
+          $Error.Clear()
+        }'
     - shell: powershell
     - require:
         - file: Copy pshelp files
