@@ -10,7 +10,7 @@ UpdatePSHelp:
   cmd.run:
     - name: 'try
         {
-          Update-Help -SourcePath {{ pshelp.cachedir }} -Module (Get-Module -ListAvailable | Where HelpInfoUri) -Force -ErrorAction Stop
+          Update-Help -SourcePath {{ pshelp.cachedir }} -Force -ErrorAction Stop
         }
         catch
         {
