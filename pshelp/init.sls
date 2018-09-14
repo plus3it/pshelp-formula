@@ -1,4 +1,4 @@
-﻿{%- from "pshelp/map.jinja" import pshelp with context %}
+{%- from "pshelp/map.jinja" import pshelp with context %}
 
 Copy pshelp files:
   file.recurse:
