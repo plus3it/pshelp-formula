@@ -39,8 +39,8 @@ To update the pshelp files in this git repo:
     -   `Save-Help -Module * -DestinationPath C:\pshelp -Force -Verbose -ErrorAction SilentlyContinue`
     -   Ignore any errors...
 -   Repeat the above steps for ws2016. Do not install every feature, but at least
-    install (this list is for ws2016 and ws2019, not every feature listed is available
-    in both):
+    install the following features (this list is for ws2016 and ws2019, not every
+    feature listed is available in both):
     -   bitlocker
     -   containers (ws2016)
     -   i/o quality of service
@@ -57,11 +57,9 @@ To update the pshelp files in this git repo:
     -   webdav redirector
     -   windows defender
     -   windows subsystem for linux (ws2019)
--   Repeat the above steps for a ws2019 server. Do not install every feature,
-    but at least install bitlocker, windows defender, and _all_ the remote server
-    administration tools (rsat).
+-   Repeat the above steps for ws2019, using the list above to select features.
 -   Purge the `pshelp/files/pshelp-content` directory in this repo of all files
--   Copy the pshelp files from both ws2012r2 and ws2016 to that directory
+-   Copy the pshelp files from ws2012r2, ws2016, and ws2019 to that directory
 -   Commit the change
--   Test the formula on ws2008r2, ws2012r2, ws2016, win81, and win10
+-   Test the formula on ws2012r2, ws2016, ws2019, and win10
 -   Open a pull request to merge the new content
