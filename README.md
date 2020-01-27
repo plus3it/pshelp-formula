@@ -25,8 +25,13 @@ To update the pshelp files in this git repo:
 
 -   Deploy a plain vanilla ws2012r2 instance (this procedure will get pshelp
     files that can be used on any system with PowerShell 3.0 or later)
+-   Follow AWS doc to attach a volume with the install media:
+    -   <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-optional-components.html>
 -   Open Server Manager, go to the "Features" page, and expand every arrow and
     select every feature
+-   On the last page, select the option to specify an alternate installation media
+    location, and provide the SxS location (for the .NET 3.5 features):
+    -   `D:\Sources\SxS`
 -   Once the features finish installing, restart the machine. The first login
     will restart the instance again, automatically.
 -   Open a PowerShell window and run the following commands:
@@ -34,7 +39,7 @@ To update the pshelp files in this git repo:
     -   `Save-Help -Module * -DestinationPath C:\pshelp -Force -Verbose`
     -   Ignore any errors...
 -   Repeat the above steps for a ws2016 server. Do not install every feature,
-    but at least install bitlocker, defender, and _all_ the remote server
+    but at least install bitlocker, windows defender, and _all_ the remote server
     administration tools (rsat)
 -   Purge the `pshelp/files/pshelp-content` directory in this repo of all files
 -   Copy the pshelp files from both ws2012r2 and ws2016 to that directory
