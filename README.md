@@ -33,14 +33,20 @@ To update the pshelp files in this git repo:
     location, and provide the SxS location (for the .NET 3.5 features):
     -   `D:\Sources\SxS`
 -   Once the features finish installing, restart the machine. The first login
-    will restart the instance again, automatically.
+    may restart the instance again, automatically.
 -   Open a PowerShell window and run the following commands:
     -   `mkdir C:\pshelp`
-    -   `Save-Help -Module * -DestinationPath C:\pshelp -Force -Verbose`
+    -   `Save-Help -Module * -DestinationPath C:\pshelp -Force -Verbose -ErrorAction SilentlyContinue`
     -   Ignore any errors...
 -   Repeat the above steps for a ws2016 server. Do not install every feature,
     but at least install bitlocker, windows defender, and _all_ the remote server
-    administration tools (rsat)
+    administration tools (rsat). Ignore host guardian hyper-v support, if it fails
+    because virtualization is not enabled
+-   Repeat the above steps for a ws2019 server. Do not install every feature,
+    but at least install bitlocker, windows defender, and _all_ the remote server
+    administration tools (rsat). Ignore host guardian hyper-v support, if it fails
+    because virtualization is not enabled. Ignore network virtualization, if containers
+    was selected
 -   Purge the `pshelp/files/pshelp-content` directory in this repo of all files
 -   Copy the pshelp files from both ws2012r2 and ws2016 to that directory
 -   Commit the change
