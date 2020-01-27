@@ -38,15 +38,28 @@ To update the pshelp files in this git repo:
     -   `mkdir C:\pshelp`
     -   `Save-Help -Module * -DestinationPath C:\pshelp -Force -Verbose -ErrorAction SilentlyContinue`
     -   Ignore any errors...
--   Repeat the above steps for a ws2016 server. Do not install every feature,
-    but at least install bitlocker, windows defender, and _all_ the remote server
-    administration tools (rsat). Ignore host guardian hyper-v support, if it fails
-    because virtualization is not enabled
+-   Repeat the above steps for ws2016. Do not install every feature, but at least
+    install (this list is for ws2016 and ws2019, not every feature listed is available
+    in both):
+    -   bitlocker
+    -   containers (ws2016)
+    -   i/o quality of service
+    -   multipoint connector
+    -   network virtualization (ws2019)
+    -   remote server administration tools (rsat) - EXPAND AND SELECT EVERYTHING!
+    -   setup and boot event collection
+    -   software load balancer
+    -   storage migration service (ws2019)
+    -   storage migration service proxy (ws2019)
+    -   storage replica
+    -   system insights (ws2019)
+    -   vm shielding tools for fabric management
+    -   webdav redirector
+    -   windows defender
+    -   windows subsystem for linux (ws2019)
 -   Repeat the above steps for a ws2019 server. Do not install every feature,
     but at least install bitlocker, windows defender, and _all_ the remote server
-    administration tools (rsat). Ignore host guardian hyper-v support, if it fails
-    because virtualization is not enabled. Ignore network virtualization, if containers
-    was selected
+    administration tools (rsat).
 -   Purge the `pshelp/files/pshelp-content` directory in this repo of all files
 -   Copy the pshelp files from both ws2012r2 and ws2016 to that directory
 -   Commit the change
