@@ -22,4 +22,4 @@
 *.RTF	 diff=astextplain
 
 *.cab binary
-*.xml -text diff=astextplain
+*.xml  text diff=astextplain
