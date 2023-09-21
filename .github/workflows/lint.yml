@@ -1,4 +1,3 @@
-
 name: Run lint and static analyis checks
 on:
   pull_request:
